@@ -46,15 +46,12 @@ int main(){
     float results_matrix[3]={14,32,38};
     float variables_matrix[3]={0,0,0};
     /*
-
-    A = 0
-    B = 0
-    C = 0
-
-    |1 2 3| |A|   |14|
-    |4 5 6|.|B| = |32|
-    |7 8 5| |C|   |38|
+        A+2B+3C  = 14
+        4A+5B+6C = 32
+        7A+8B+5C = 38
     */
+    
+    
     puts("Show coefficients matrix and results matrix");
     show_coefficients_matrix_and_result_matrix(3,coefficients_matrix,results_matrix);
     /*
