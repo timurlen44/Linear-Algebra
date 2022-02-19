@@ -98,9 +98,9 @@ int main(void){
     float variables_matrix[3]={0,0,0};
     int number_of_equations = 3;
     /*
-    A+2B+3C  = 14
-    4A+5B+6C = 32
-    7A+8B+5C = 38
+    X+2Y+3Z  = 14
+    4X+5Y+6Z = 32
+    7X+8Y+5Z = 38
 
     |1 2 3| |X|  |14|
     |4 5 6|.|Y|= |32|
