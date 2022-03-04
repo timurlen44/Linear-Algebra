@@ -197,9 +197,16 @@ float determinant_with_cofactors_method(float *matrix, int Size, bool *det_avail
     else{
         float *element = NULL;
         for(int col = 0;col<Size;col++){
+            
             element = subtract_given_row_and_column_from_matrix(matrix,Size,0,col);
-            det += pow(-1,0+col)*matrix[col]*determinant_with_lower_triangular_matrix_method(element,Size-1,det_available);
-            free(element);
+            if(element != NULL){
+                det += pow(-1,0+col)*matrix[col]*determinant_with_lower_triangular_matrix_method(element,Size-1,det_available);
+                free(element);
+            }
+            else{
+                (*det_available) = false;
+                return 0;
+            }
         }
     }
     return det;
