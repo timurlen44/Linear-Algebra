@@ -91,8 +91,9 @@ struct complex_number **conjugate_transpose(struct complex_number** complex_mat,
         return conjugateTranspose;
     for(int row = 0;row<rowSize;row++){
         for(int col=0;col<colSize;col++){
-            conjugateTranspose[row+col*rowSize] = complex_mat[col+row*colSize];
-            conjugateTranspose[row+col*rowSize]->imaginer *= -1;
+            conjugateTranspose[row+col*rowSize] =  (struct complex_num **)malloc(sizeof(struct complex_num*));
+            conjugateTranspose[row+col*rowSize]->imaginer = (-1)*complex_mat[col+row*colSize]->imaginer;
+            conjugateTranspose[row+col*rowSize]->reel = complex_mat[col+row*colSize]->reel;
         }
     }
     return conjugateTranspose;
