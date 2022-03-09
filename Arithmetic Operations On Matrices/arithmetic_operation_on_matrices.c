@@ -54,7 +54,6 @@ float *multiply_two_matrices(float *m1,float *m2, int m1_rowSize, int m1_colSize
     result = (float *)malloc(sizeof(float)* m1_rowSize*m2_colSize);
     if(result == NULL)
         return NULL;
-
     float sum = 0;
     for(int row1 = 0;row1<m1_rowSize;row1++){
         for(int col2=0;col2<m2_colSize;col2++){
@@ -62,8 +61,7 @@ float *multiply_two_matrices(float *m1,float *m2, int m1_rowSize, int m1_colSize
             for(int k = 0;k < m1_colSize;k++){
                     sum += m1[k+row1*m1_colSize]*m2[col2+k*m2_colSize];
             }
-
-            result[col2+row1*m1_rowSize] = sum;
+            result[col2+row1*m2_colSize] = sum;
             sum  = 0;
 
         }
@@ -71,6 +69,7 @@ float *multiply_two_matrices(float *m1,float *m2, int m1_rowSize, int m1_colSize
 
     return result;
 }
+
 
 
 void show_matrix(float *matrix, int rowSize, int colSize);
