@@ -54,14 +54,16 @@ float *multiply_two_matrices(float *m1,float *m2, int m1_rowSize, int m1_colSize
     result = (float *)malloc(sizeof(float)* m1_rowSize*m2_colSize);
     if(result == NULL)
         return NULL;
-    int sum = 0;
+
+    float sum = 0;
     for(int row1 = 0;row1<m1_rowSize;row1++){
-        for(int col2=0;col2<m2_rowSize;col2++){
+        for(int col2=0;col2<m2_colSize;col2++){
 
             for(int k = 0;k < m1_colSize;k++){
-                    sum += m1[k+row1*m1_colSize]*m2[col2+k*m2_rowSize];
+                    sum += m1[k+row1*m1_colSize]*m2[col2+k*m2_colSize];
             }
-            result[col2+row1*m1_colSize] = sum;
+
+            result[col2+row1*m1_rowSize] = sum;
             sum  = 0;
 
         }
